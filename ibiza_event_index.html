@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It Is What It Is - Ibiza</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+            width: 100vw;
+            overflow-y: auto;
+            overflow-x: hidden;
+            background-color: black; /* Ensures full background is black */
+        }
+        .image-container {
+            width: 100%;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .video-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-color: black;
+        }
+        .video-container video {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            display: block;
+            position: absolute;
+            will-change: transform, opacity;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+        .container {
+            background: rgba(0, 0, 0, 1); /* Solid black background */
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 100%;
+            margin-bottom: 20px; /* Adjusted margin */
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            font-size: 22px;
+            background: linear-gradient(45deg, #4285F4, #34A853, #FBBC05, #EA4335);
+            background-size: 300% 300%;
+            animation: gradientAnimation 3s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            background: linear-gradient(45deg, #4285F4, #34A853, #FBBC05, #EA4335);
+            background-size: 300% 300%;
+            animation: gradientAnimation 3s ease infinite;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="https://i.postimg.cc/pdYVtc7H/NO-RULES-JUST-RHYTHM.png" alt="Event Branding Image">
+    </div>
+    <div class="container">
+        <h1>The Ultimate Sunset Experience – Join our exclusive guest list for priority access to Ibiza’s pre-club sunset party.</h1>
+        
+        <!-- Updated Form with Formspree to send data to itiswhatitisibiza@gmail.com -->
+        <form action="https://formspree.io/f/mayrldwg" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="tel" name="phone" placeholder="Your Phone Number" required>
+            <input type="hidden" name="_subject" value="New Event Registration - It Is What It Is Ibiza">
+            <div class="button-container">
+                <button type="submit">Sign Up</button>
+            </div>
+        </form>
+    </div>
+    <div class="video-container">
+        <video id="eventVideo" controls loop playsinline autoplay>
+            <source src="https://res.cloudinary.com/dcviitl0w/video/upload/v1740435687/ksrtt0trzefyfrbhwfbz.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</body>
+</html>
