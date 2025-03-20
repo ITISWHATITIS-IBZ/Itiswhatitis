@@ -4,22 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>It Is What It Is - Ibiza</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Oswald', sans-serif;
             color: white;
             text-align: center;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            justify-content: center;
             align-items: center;
             min-height: 100vh;
             width: 100vw;
             overflow-y: auto;
             overflow-x: hidden;
-            background-color: black; /* Ensures full background is black */
+            background-color: black; /* Keeps the original black background */
         }
         .image-container {
             width: 100%;
@@ -52,54 +53,98 @@
             transform: translateZ(0);
         }
         .container {
-            background: rgba(0, 0, 0, 1); /* Solid black background */
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 400px;
-            width: 100%;
-            margin-bottom: 20px; /* Adjusted margin */
+            background: rgba(0, 0, 0, 0.85);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 450px;
+            width: 90%;
             position: relative;
             z-index: 1;
+            margin-bottom: 30px;
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Ensures full centering */
+            text-align: center;
         }
         h1 {
-            font-size: 22px;
-            background: linear-gradient(45deg, #4285F4, #34A853, #FBBC05, #EA4335);
-            background-size: 300% 300%;
-            animation: gradientAnimation 3s ease infinite;
+            font-size: 26px;
+            font-weight: 700;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #ff8c00, #ff0080, #8a2be2, #1e90ff, #00ff00);
+            background-size: 400% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            display: inline-block;
+            animation: gradientFlow 3s linear infinite;
         }
-        @keyframes gradientAnimation {
+        @keyframes gradientFlow {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
         input {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin: 10px 0;
-            border: none;
-            border-radius: 5px;
+            border: 2px solid white;
+            border-radius: 8px;
+            background: transparent;
+            color: white;
+            font-family: 'Oswald', sans-serif;
+            font-size: 16px;
+            text-align: center;
+        }
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
         }
         .button-container {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            margin-top: 10px;
+            margin-top: 15px;
         }
         button {
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 12px 25px;
+            font-size: 18px;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             color: white;
-            background: linear-gradient(45deg, #4285F4, #34A853, #FBBC05, #EA4335);
-            background-size: 300% 300%;
-            animation: gradientAnimation 3s ease infinite;
+            background: linear-gradient(90deg, #ff8c00, #ff0080, #8a2be2, #1e90ff, #00ff00);
+            background-size: 400% 100%;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            border: 2px solid white;
+            transition: 0.4s;
+            margin-bottom: 10px;
         }
         button:hover {
-            opacity: 0.9;
+            background-size: 200% 100%;
+            border-color: #ff8c00;
+        }
+        .social-links {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 8px;
+            transition: 0.3s;
+            font-weight: 400;
+        }
+        .social-links a:hover {
+            color: #ff8c00;
+        }
+        .confirmation-message {
+            display: none;
+            font-size: 18px;
+            color: limegreen;
+            margin-top: 15px;
         }
     </style>
 </head>
@@ -107,11 +152,11 @@
     <div class="image-container">
         <img src="https://i.postimg.cc/pdYVtc7H/NO-RULES-JUST-RHYTHM.png" alt="Event Branding Image">
     </div>
+    
     <div class="container">
-        <h1>The Ultimate Sunset Experience – Join our exclusive guest list for priority access to Ibiza’s pre-club sunset party.</h1>
+        <h1>The Ultimate Sunset Experience – Join Our Guest List</h1>
         
-        <!-- Updated Form with Formspree to send data to itiswhatitisibiza@gmail.com -->
-        <form action="https://formspree.io/f/mldjgpve" method="POST">
+        <form id="registrationForm" action="https://formspree.io/f/{your-form-id}" method="POST" onsubmit="return showConfirmation();">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <input type="tel" name="phone" placeholder="Your Phone Number" required>
@@ -120,12 +165,28 @@
                 <button type="submit">Sign Up</button>
             </div>
         </form>
+
+        <p class="confirmation-message" id="confirmationMessage">✅ You're on the list! See you in Ibiza. 🎉</p>
+
+        <div class="social-links">
+            <a href="https://www.instagram.com/itiswhatitisibiza?igsh=ejJsNjNwbW1yOXYw" id="instagramLink" target="_blank">Instagram</a> | 
+            <a href="#" id="whatsappLink" target="_blank">WhatsApp</a>
+        </div>
     </div>
+
     <div class="video-container">
         <video id="eventVideo" controls loop playsinline autoplay>
             <source src="https://res.cloudinary.com/dcviitl0w/video/upload/v1740435687/ksrtt0trzefyfrbhwfbz.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
+
+    <script>
+        function showConfirmation() {
+            document.getElementById("registrationForm").style.display = "none";
+            document.getElementById("confirmationMessage").style.display = "block";
+            return false; // Prevents the page from reloading
+        }
+    </script>
 </body>
 </html>
