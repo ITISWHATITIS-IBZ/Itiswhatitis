@@ -20,7 +20,7 @@
             width: 100vw;
             overflow-y: auto;
             overflow-x: hidden;
-            background-color: black; /* Keeps the original black background */
+            background-color: black;
         }
         .image-container {
             width: 100%;
@@ -64,19 +64,20 @@
             box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
             display: flex;
             flex-direction: column;
-            align-items: center; /* Ensures full centering */
+            align-items: center;
             text-align: center;
         }
         h1 {
             font-size: 26px;
             font-weight: 700;
             text-transform: uppercase;
-            background: linear-gradient(90deg, #ff8c00, #ff0080, #8a2be2, #1e90ff, #00ff00);
+            background: linear-gradient(90deg, #ffcc99, #ff6699, #9966ff, #66ccff, #ffcc66);
             background-size: 400% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
-            animation: gradientFlow 3s linear infinite;
+            animation: gradientFlow 4s linear infinite;
+            text-shadow: 3px 3px 15px rgba(255, 255, 255, 0.8);
         }
         @keyframes gradientFlow {
             0% { background-position: 0% 50%; }
@@ -111,7 +112,7 @@
             border-radius: 8px;
             cursor: pointer;
             color: white;
-            background: linear-gradient(90deg, #ff8c00, #ff0080, #8a2be2, #1e90ff, #00ff00);
+            background: linear-gradient(90deg, #ffcc99, #ff6699, #9966ff, #66ccff, #ffcc66);
             background-size: 400% 100%;
             font-family: 'Oswald', sans-serif;
             font-weight: 700;
@@ -120,11 +121,12 @@
             -webkit-text-fill-color: transparent;
             border: 2px solid white;
             transition: 0.4s;
+            text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.8);
             margin-bottom: 10px;
         }
         button:hover {
             background-size: 200% 100%;
-            border-color: #ff8c00;
+            border-color: #ffcc99;
         }
         .social-links {
             margin-top: 10px;
@@ -138,7 +140,7 @@
             font-weight: 400;
         }
         .social-links a:hover {
-            color: #ff8c00;
+            color: #ffcc99;
         }
         .confirmation-message {
             display: none;
@@ -185,7 +187,7 @@
         function showConfirmation() {
             document.getElementById("registrationForm").style.display = "none";
             document.getElementById("confirmationMessage").style.display = "block";
-            return false; // Prevents the page from reloading
+            return false;
         }
     </script>
 </body>
