@@ -1,194 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>It Is What It Is - Ibiza</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Oswald', sans-serif;
-            color: white;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            width: 100vw;
-            overflow-y: auto;
-            overflow-x: hidden;
-            background-color: black;
-        }
-        .image-container {
-            width: 100%;
-            position: relative;
-            margin-bottom: 20px;
-        }
-        .image-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .video-container {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            background-color: black;
-        }
-        .video-container video {
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-            display: block;
-            position: absolute;
-            will-change: transform, opacity;
-            backface-visibility: hidden;
-            transform: translateZ(0);
-        }
-        .container {
-            background: rgba(0, 0, 0, 0.85);
-            padding: 30px;
-            border-radius: 15px;
-            max-width: 450px;
-            width: 90%;
-            position: relative;
-            z-index: 1;
-            margin-bottom: 30px;
-            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        h1 {
-            font-size: 26px;
-            font-weight: 700;
-            text-transform: uppercase;
-            background: linear-gradient(90deg, #ffcc99, #ff6699, #9966ff, #66ccff, #ffcc66);
-            background-size: 400% 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-            animation: gradientFlow 4s linear infinite;
-            text-shadow: 3px 3px 15px rgba(255, 255, 255, 0.8);
-        }
-        @keyframes gradientFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 2px solid white;
-            border-radius: 8px;
-            background: transparent;
-            color: white;
-            font-family: 'Oswald', sans-serif;
-            font-size: 16px;
-            text-align: center;
-        }
-        input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 15px;
-        }
-        button {
-            padding: 12px 25px;
-            font-size: 18px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            color: white;
-            background: linear-gradient(90deg, #ffcc99, #ff6699, #9966ff, #66ccff, #ffcc66);
-            background-size: 400% 100%;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 700;
-            text-transform: uppercase;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            border: 2px solid white;
-            transition: 0.4s;
-            text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.8);
-            margin-bottom: 10px;
-        }
-        button:hover {
-            background-size: 200% 100%;
-            border-color: #ffcc99;
-        }
-        .social-links {
-            margin-top: 10px;
-            font-size: 18px;
-        }
-        .social-links a {
-            color: white;
-            text-decoration: none;
-            margin: 0 8px;
-            transition: 0.3s;
-            font-weight: 400;
-        }
-        .social-links a:hover {
-            color: #ffcc99;
-        }
-        .confirmation-message {
-            display: none;
-            font-size: 18px;
-            color: limegreen;
-            margin-top: 15px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>It Is What It Is - Ibiza</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Oswald', sans-serif;
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      width: 100vw;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background-color: black;
+    }
+    .image-container {
+      width: 100%;
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .image-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .video-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      background-color: black;
+    }
+    .video-container video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      display: block;
+      position: absolute;
+      will-change: transform, opacity;
+      backface-visibility: hidden;
+      transform: translateZ(0);
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.85);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 450px;
+      width: 90%;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 30px;
+      box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    h1 {
+      font-size: 26px;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #ffcc99, #ff6699, #9966ff, #66ccff, #ffcc66);
+      background-size: 400% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      animation: gradientFlow 4s linear infinite;
+      text-shadow: 3px 3px 15px rgba(255, 255, 255, 0.8);
+    }
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 2px solid white;
+      border-radius: 8px;
+      background: transparent;
+      color: white;
+      font-family: 'Oswald', sans-serif;
+      font-size: 16px;
+      text-align: center;
+    }
+    input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 15px;
+    }
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+      background: linear-gradient(90deg, #ffcc99, #ff6699, #9966ff, #66ccff, #ffcc66);
+      background-size: 400% 100%;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      border: 2px solid white;
+      transition: 0.4s;
+      text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.8);
+      margin-bottom: 10px;
+    }
+    button:hover {
+      background-size: 200% 100%;
+      border-color: #ffcc99;
+    }
+    .social-links {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+    .social-links a {
+      color: white;
+      text-decoration: none;
+      margin: 0 8px;
+      transition: 0.3s;
+      font-weight: 400;
+    }
+    .social-links a:hover {
+      color: #ffcc99;
+    }
+  </style>
 </head>
 <body>
-    <div class="image-container">
-        <img src="https://i.postimg.cc/pdYVtc7H/NO-RULES-JUST-RHYTHM.png" alt="Event Branding Image">
+  <div class="image-container">
+    <img src="https://i.postimg.cc/pdYVtc7H/NO-RULES-JUST-RHYTHM.png" alt="Event Branding Image">
+  </div>
+
+  <div class="container">
+    <h1>The Ultimate Sunset Experience – Join Our Guest List</h1>
+
+    <form action="https://formspree.io/f/mldjgpve" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="tel" name="phone" placeholder="Your Phone Number" required>
+      <input type="hidden" name="_subject" value="New Event Registration - It Is What It Is Ibiza">
+      <div class="button-container">
+        <button type="submit">Sign Up</button>
+      </div>
+    </form>
+
+    <div class="social-links">
+      <a href="https://www.instagram.com/itiswhatitisibiza?igsh=ejJsNjNwbW1yOXYw" target="_blank">Instagram</a> |
+      <a href="#" target="_blank">WhatsApp</a>
     </div>
-    
-    <div class="container">
-        <h1>The Ultimate Sunset Experience – Join Our Guest List</h1>
-        
-        <form id="registrationForm" action="https://formspree.io/f/mldjgpve" method="POST" onsubmit="return showConfirmation();">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <input type="tel" name="phone" placeholder="Your Phone Number" required>
-            <input type="hidden" name="_subject" value="New Event Registration - It Is What It Is Ibiza">
-            <div class="button-container">
-                <button type="submit">Sign Up</button>
-            </div>
-        </form>
+  </div>
 
-        <p class="confirmation-message" id="confirmationMessage">✅ You're on the list! See you in Ibiza. 🎉</p>
-
-        <div class="social-links">
-            <a href="https://www.instagram.com/itiswhatitisibiza?igsh=ejJsNjNwbW1yOXYw" id="instagramLink" target="_blank">Instagram</a> | 
-            <a href="#" id="whatsappLink" target="_blank">WhatsApp</a>
-        </div>
-    </div>
-
-    <div class="video-container">
-        <video id="eventVideo" controls loop playsinline autoplay>
-            <source src="https://res.cloudinary.com/dcviitl0w/video/upload/v1740435687/ksrtt0trzefyfrbhwfbz.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-
-    <script>
-        function showConfirmation() {
-            document.getElementById("registrationForm").style.display = "none";
-            document.getElementById("confirmationMessage").style.display = "block";
-            return false;
-        }
-    </script>
+  <div class="video-container">
+    <video id="eventVideo" controls loop playsinline autoplay muted>
+      <source src="https://res.cloudinary.com/dcviitl0w/video/upload/v1740435687/ksrtt0trzefyfrbhwfbz.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
 </body>
-</html> 
+</html>
